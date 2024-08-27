@@ -1,0 +1,47 @@
+cd ..
+rm JGammon_AI_2017.zip 
+zip JGammon_AI_2017.zip -r JGammon_AI_2017/
+nvim
+bin/playground 
+dune build watch
+dune build --watch
+debug/playground
+(+ 1 2 3 4 5)
+(defun coiso ()(format t "coiso"))
+(coiso)
+cd src/
+gcc -S main.c
+ls
+c3c run
+c3c run
+c3c run -O5
+zbr
+zig build run -Doptimize=ReleaseFast
+c3c run
+c3c run -O5
+c3c run -O3
+2
+3
+make
+make
+make
+5
+5
+make
+2
+5
+make
+2
+make
+2
+2
+2
+6
+1
+make run
+exit
+racket
+./main 
+2
+ls
+exit
