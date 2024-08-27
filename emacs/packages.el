@@ -111,15 +111,15 @@
 (use-package org-bullets :ensure t)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+(use-package smart-tab
+  :ensure t
+  :config (global-smart-tab-mode 1))
+
 (use-package projectile
   :ensure t
   (projectile-mode +1)
   (setq projectile-project-search-path '("~/projects/" "~/playgrounds/" "~/faculdade/"))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
-
-(use-package corfu
-  :ensure t
-  :init (global-corfu-mode))
 
 (use-package multiple-cursors
   :ensure t
@@ -142,9 +142,5 @@
   :ensure t
   :hook ((prog-mode . highlight-numbers-mode)))
 
-(use-package emacs
-  :custom
-  (tab-always-indent 'complete)
-  (read-extended-command-predicate #'command-completion-default-include-p))
 
 ;;; Packages.el ends here
