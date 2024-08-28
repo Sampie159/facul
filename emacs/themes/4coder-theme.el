@@ -71,7 +71,7 @@
    `(region ((,class (:background ,selection))))
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
 	 `(hl-line ((,class (:background  ,bg2))))
-	 `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
+	 `(fringe ((,class (:background ,bg1 :foreground ,fg4))))
 	 `(cursor ((,class (:background ,fg4))))
    `(isearch ((,class (:bold nil :foreground ,warning :background ,bg3))))
    `(mode-line ((,class (:box (:line-width 1 :color nil) :bold nil :foreground ,fg4 :background ,bg2))))
