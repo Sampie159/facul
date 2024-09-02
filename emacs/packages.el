@@ -15,9 +15,12 @@
 (use-package cmake-mode
   :ensure t
   :config
-  (setq cmake-tab-width 4))
+  (setq cmake-tab-width 4)
+  :hook ((cmake-mode . lsp)))
 
-(use-package racket-mode :ensure t)
+(use-package racket-mode
+  :ensure t
+  :hook ((racket-mode . lsp)))
 
 (use-package which-key
   :ensure t
@@ -65,7 +68,9 @@
   (setq lsp-keymap-prefix "C-c l"
         lsp-enable-suggest-server-download nil)
   :hook
-  ((lsp-mode . lsp-enable-which-key-integration))
+  ((c-mode . lsp)
+   (c++-mode . lsp)
+   (lsp-mode . lsp-enable-which-key-integration))
   :config
   (define-key lsp-mode-map (kbd "C-c l f") #'lsp-format-buffer)
   (setq lsp-enable-on-type-formatting nil
@@ -131,16 +136,26 @@
   (global-set-key (kbd "C-\"") 'mc/skip-to-next-like-this)
   (global-set-key (kbd "C-:") 'mc/skip-to-previous-like-this))
 
-(use-package moody
-  :ensure t
-  :config
-  (moody-replace-mode-line-front-space)
-  (moody-replace-mode-line-buffer-identification)
-  (moody-replace-vc-mode))
-
 (use-package highlight-numbers
   :ensure t
   :hook ((prog-mode . highlight-numbers-mode)))
 
+(use-package corfu
+  :ensure t
+  :init (global-corfu-mode))
+
+(use-package dabbrev
+  :bind (("M-/" . dabbrev-completion)
+         ("C-M-/" . dabbrev-expand))
+  :config
+  (add-to-list 'dabbrev-ignored-buffer-regexps "\\` ")
+  (add-to-list 'dabbrev-ignored-buffer-modes 'doc-view-mode)
+  (add-to-list 'dabbrev-ignored-buffer-modes 'pdf-view-mode)
+  (add-to-list 'dabbrev-ignored-buffer-modes 'tags-table-mode))
+
+(use-package emacs
+  :custom
+  (tab-always-indent 'complete)
+  (read-extended-command-predicate #'command-completion-default-include-p))
 
 ;;; Packages.el ends here
