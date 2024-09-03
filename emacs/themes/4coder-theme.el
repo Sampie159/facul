@@ -38,7 +38,7 @@
       (bg2 "#1f1f1f")
       (bg3 "#333333")
       (bg4 "#464646")
-      (builtin "#90b080")
+      (builtin "#a0b8a0")
       (keyword "#d08f20")
       (const   "#50ff30")
       (comment "#2090f0")
