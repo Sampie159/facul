@@ -12,7 +12,7 @@ vim.wo.number = true
 vim.o.mouse = 'a'
 
 vim.o.cindent = true
-vim.o.cino = "N-s,g0,:0,E-s"
+vim.o.cino = "N-s,g0,:0,E-s,(0"
 
 -- Sync clipboard
 vim.o.clipboard = 'unnamedplus'
@@ -44,8 +44,8 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menu'
-vim.opt.completeopt = 'menu'
+vim.o.completeopt = "menu,menuone"
+vim.opt.completeopt = "menu,menuone"
 
 -- Set termguicolors
 vim.o.termguicolors = true
