@@ -15,6 +15,8 @@ local on_attach = function(client, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, '[W]orkspace [L]ist Folders')
 
+    client.server_capabilities.semanticTokensProvider = nil
+
     -- Create a command `:Format` local to the LSP buffer
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
@@ -86,7 +88,7 @@ lsp.clangd.setup {
         clangdFileStatus = true,
         usePlaceholders = true,
         completeUnimported = true,
-        semanticHighlighting = true,
+        semanticHighlighting = false,
     },
     root_dir = lsp.util.root_pattern('.clangd', '.clang-format', '.clang-tidy', '.clang=format', 'configure.ac',
         'compile_commands.json',

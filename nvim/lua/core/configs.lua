@@ -44,7 +44,8 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu'
+vim.opt.completeopt = 'menu'
 
 -- Set termguicolors
 vim.o.termguicolors = true
@@ -78,4 +79,8 @@ vim.diagnostic.enable(false)
 
 if vim.g.neovide then
     vim.o.guifont = "CaskaydiaMono Nerd Font:h12"
+end
+
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+    vim.api.nvim_set_hl(0, group, {})
 end

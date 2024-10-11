@@ -10,6 +10,10 @@ end
 luasnip.config.setup {}
 
 cmp.setup {
+    completion = {
+        autocomplete = false,
+        completeopt = 'menu',
+    },
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)

@@ -284,6 +284,9 @@ local plugins = {
     -- c3
     'Airbus5717/c3.vim',
 
+    -- dadbox
+    'tpope/vim-dadbod',
+
     -- prunner (dev)
     -- {
     --     dir = "~/projects/prunner.nvim",
