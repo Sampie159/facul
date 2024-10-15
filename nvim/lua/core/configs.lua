@@ -6,7 +6,7 @@ vim.g.maplocalleader = ' '
 vim.o.hlsearch = false
 
 -- Line numbers default
-vim.wo.number = true
+-- vim.wo.number = true
 
 -- Enable mouse
 vim.o.mouse = 'a'
@@ -24,7 +24,7 @@ vim.o.breakindent = true
 vim.o.undofile = true
 
 -- Relative numbers
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 
 -- Tab stop
 vim.o.tabstop = 4
