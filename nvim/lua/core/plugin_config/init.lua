@@ -9,7 +9,6 @@ require('core.plugin_config.luasnip_config')
 
 vim.g.aqua_bold = 0
 vim.g.zenbones_darkness = "stark"
-vim.g.zenwritten_lightness = "dim"
 local hour = tonumber(os.date("%H"))
 if hour > 17 or hour < 9 then
     vim.o.background = "dark"
