@@ -4,9 +4,9 @@ function! s:insert_header_guard()
     let filename = expand("%:t:r")
     let ext = "_" . toupper(expand("%:t:e"))
     let guard = "_" . toupper(filename) . ext . "_"
-    execute "normal! i#ifndef " . guard . "\n#define " . guard . "\n\n\n"
-    execute "normal! o#endif // " . guard
-    execute "normal! 4gg"
+    execute "normal! i#if !defined(" . guard . ")\n\n\n\n#define " . guard
+    execute "normal! o#endif /* " . guard . " */"
+    execute "normal! 3gg"
 endfunction
 
 function! s:auto_include()

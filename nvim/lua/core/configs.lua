@@ -12,7 +12,7 @@ vim.o.hlsearch = false
 vim.o.mouse = 'a'
 
 vim.o.cindent = true
-vim.o.cino = "N-s,g0,:0,E-s,(0"
+vim.o.cino = "N-s,g0,:0,E-s,(0,Ps"
 
 -- Sync clipboard
 vim.o.clipboard = 'unnamedplus'
