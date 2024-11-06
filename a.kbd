@@ -16,6 +16,7 @@
   4cd (layer-switch 4coder)
   mvt (layer-toggle movement)
   e/c (tap-hold 100 100 esc lctl)
+  s/s (tap-hold 200 200 spc lsft)
   e/m (tap-hold 200 200 esc @mvt))
 
 (deflayer qwerty
@@ -24,7 +25,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret   del  end  pgdn  kp7  kp8  kp9  kp+
   @e/c a    s    d    f    g    h    j    k    l    ç    '    \                          kp4  kp5  kp6
   lsft 102d z    x    c    v    b    n    m    ,    .    /    rsft            up         kp1  kp2  kp3  kprt
-  lctl lmet lalt           spc                 ralt rmet cmp  rctl       left down rght  kp0  kp.
+  lctl lmet lalt           @s/s                ralt rmet cmp  rctl       left down rght  kp0  kp.
 )
 
 (deflayer 4coder
