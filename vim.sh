@@ -6,3 +6,4 @@ make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=~/
 make install
 ln -sf ~/facul/nvim ~/.config
 ln -sf ~/facul/tmux ~/.config
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
