@@ -60,5 +60,28 @@ if exist "%msvc22p%" (
     vim.api.nvim_buf_set_text(buf, line, 0, line, 0, lines)
 end
 
+local function update_theme()
+    local hour = tonumber(os.date("%H"))
+    if vim.g.neovide then
+        vim.o.guifont = "CaskaydiaMono Nerd Font:h12"
+        if hour > 17 or hour < 9 then
+            vim.o.background = "dark"
+            vim.cmd.colorscheme("modus_vivendi")
+        else
+            vim.o.background = "light"
+            vim.cmd.colorscheme("modus_operandi")
+        end
+    else
+        if hour > 17 or hour < 9 then
+            vim.o.background = "dark"
+            vim.cmd.colorscheme("zenbones")
+        else
+            vim.o.background = "light"
+            vim.cmd.colorscheme("zenwritten")
+        end
+    end
+end
+
 vim.api.nvim_create_user_command('Label', label, { nargs = "*" })
 vim.api.nvim_create_user_command('Vcvars', vcvars, {})
+vim.api.nvim_create_user_command('Update', update_theme, {})

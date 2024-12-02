@@ -7,18 +7,29 @@ require('core.plugin_config.treesitter_config')
 require('core.plugin_config.lsp_config')
 require('core.plugin_config.luasnip_config')
 
-vim.g.aqua_bold = 0
+local hour = tonumber(os.date("%H"))
+
+vim.g.agua_bold = 0
 vim.g.zenbones_darkness = "stark"
-vim.o.background = "dark"
-vim.cmd.colorscheme("zenbones")
--- local hour = tonumber(os.date("%H"))
--- if hour > 17 or hour < 9 then
---     vim.o.background = "dark"
---     vim.cmd.colorscheme("zenbones")
--- else
---     vim.o.background = "light"
---     vim.cmd.colorscheme("zenwritten")
--- end
+
+if vim.g.neovide then
+    vim.o.guifont = "CaskaydiaMono Nerd Font:h12"
+    if hour > 17 or hour < 9 then
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("modus_vivendi")
+    else
+        vim.o.background = "light"
+        vim.cmd.colorscheme("modus_operandi")
+    end
+else
+    if hour > 17 or hour < 9 then
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("zenbones")
+    else
+        vim.o.background = "light"
+        vim.cmd.colorscheme("zenwritten")
+    end
+end
 
 -- I got tired of creating separate files for each plugin configuration, so I'll
 -- just put them all here. I'll try to keep it organized, though.
