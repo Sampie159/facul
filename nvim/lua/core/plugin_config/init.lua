@@ -21,14 +21,6 @@ if vim.g.neovide then
         vim.o.background = "light"
         vim.cmd.colorscheme("modus_operandi")
     end
-else
-    if hour > 17 or hour < 9 then
-        vim.o.background = "dark"
-        vim.cmd.colorscheme("zenbones")
-    else
-        vim.o.background = "light"
-        vim.cmd.colorscheme("zenwritten")
-    end
 end
 
 -- I got tired of creating separate files for each plugin configuration, so I'll
