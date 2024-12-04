@@ -62,26 +62,23 @@ end
 
 local function update_theme()
     local hour = tonumber(os.date("%H"))
-    if vim.g.neovide then
-        vim.o.guifont = "CaskaydiaMono Nerd Font:h12"
-        if hour > 17 or hour < 9 then
-            vim.o.background = "dark"
-            vim.cmd.colorscheme("modus_vivendi")
-        else
-            vim.o.background = "light"
-            vim.cmd.colorscheme("modus_operandi")
-        end
+    if hour > 17 or hour < 9 then
+        vim.o.background = "dark"
+        vim.cmd.colorscheme("zenbones")
     else
-        if hour > 17 or hour < 9 then
-            vim.o.background = "dark"
-            vim.cmd.colorscheme("zenbones")
-        else
-            vim.o.background = "light"
-            vim.cmd.colorscheme("zenwritten")
-        end
+        vim.o.background = "light"
+        vim.cmd.colorscheme("zenwritten")
     end
 end
 
 vim.api.nvim_create_user_command('Label', label, { nargs = "*" })
 vim.api.nvim_create_user_command('Vcvars', vcvars, {})
-vim.api.nvim_create_user_command('Update', update_theme, {})
+vim.api.nvim_create_user_command('Ref', update_theme, {})
+
+if not vim.g.neovide then
+    vim.api.nvim_create_autocmd('BufEnter', {
+        desc = 'Update the theme',
+        group = vim.api.nvim_create_augroup('update_theme', { clear = true }),
+        callback = update_theme,
+    })
+end
