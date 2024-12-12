@@ -7,20 +7,14 @@ require('core.plugin_config.treesitter_config')
 require('core.plugin_config.lsp_config')
 require('core.plugin_config.luasnip_config')
 
-local hour = tonumber(os.date("%H"))
-
 vim.g.agua_bold = 0
 vim.g.zenbones_darkness = "stark"
 
+vim.o.background = 'dark'
+vim.cmd.colorscheme('zenbones')
+
 if vim.g.neovide then
     vim.o.guifont = "CaskaydiaMono Nerd Font:h12"
-    if hour > 17 or hour < 9 then
-        vim.o.background = "dark"
-        vim.cmd.colorscheme("modus_vivendi")
-    else
-        vim.o.background = "light"
-        vim.cmd.colorscheme("modus_operandi")
-    end
 end
 
 -- I got tired of creating separate files for each plugin configuration, so I'll
@@ -76,8 +70,44 @@ vim.g.haskell_tools = {
 require'nvim-web-devicons'.get_icons()
 
 require('todo-comments').setup {
+    keywords = {
+        TODO = { 
+            color = "#ff0000",
+            alt = {
+                'ToDo',
+            },
+        },
+        HACK = {
+            color = "#ff6600",
+            alt = {
+                'Hack',
+            },
+        },
+        NOTE = {
+            color = "#008000",
+            alt = {
+                'Note',
+            },
+        },
+        FIXME = {
+            color = "#f06292",
+            alt = {
+                'FixMe',
+                'Fix',
+            },
+        },
+        WARN = { 
+            color = "#ffff00",
+            alt = {
+                'Warn',
+            },
+        },
+        nocheckin = {
+            color = "#ff00ff",
+        },
+    },
     highlight = {
-        pattern = [[(KEYWORDS)\s*(\([^\)]*\))?:]],
+        pattern = [[\@*(KEYWORDS|keywords)\s*(\([^\)]*\))?:]],
     },
 }
 
